@@ -1,0 +1,89 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Figura</title>
+
+<script language="javascript">     
+    function recibir()
+{
+          
+
+        var valor = document.getElementById("texto").value;//lo transforma s
+        document.getElementById("txt").innerHTML=valor;    //este hace que seponga en el documento     
+var j;
+var i;
+var cont;
+var es="";
+
+       var num=(valor/2);
+        var di=valor/2;
+var x=Math.round(di);
+       if(valor%1==0)
+          {
+
+                if ( valor % 2 == 0 )
+                {
+                 
+                document.write("ERROR");
+                }
+else 
+{
+     for (i=0;i<=num;i++)
+     { 
+      for(j=0;j<i+1;j++)
+      { 
+                document.write("*");
+      }
+               document.write("<br />");
+            /*    es=es+" ";
+                 document.write(es);*/
+              
+     }
+    
+    for ( i=1;i<=num;i++)
+     { 
+      for( j=0;j<=num;j++)
+      { 
+        if(j<i) {
+   
+                document.write('&nbsp&nbsp');
+                }
+      else {
+
+                document.write("*");
+            }
+     }
+   /*   es=es+" ";
+                 document.write(es);*/
+
+                document.write("<br />");
+    }
+ }
+}//cierre del if
+else
+   document.write("ERROR, no se aceptan numeros decimales");
+              
+
+}
+       
+</script> 
+
+
+</head>
+<body style="background-image: url('img/rosa-rosa1.jpg');">
+
+<form id="formulario" name="formu">
+    	
+    	<br>
+      Ingresa un numero :
+<input type="text" id="texto" onchange="recibir()"/> <!--donde escribe el numero -->
+<br>
+<div id="txt"></div>
+</form>
+
+</body>
+
+
+</html>
