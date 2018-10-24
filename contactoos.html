@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Contaccto</title>
+
+<meta charset=“utf-8”>
+
+<meta http-equiv=“X-UA-Compatible” content=“IE=edge,chrome=1”>
+
+<meta name=“description” content=“Contacto”>
+
+<meta name=“keywords” content=“Contacto, Contactar ”>
+
+<meta name=“viewport” content=“width=device-width, initial-scale=1”>
+
+</head>
+
+<body>
+
+<div class=“container-fluid”>
+
+<div class=“row”>
+
+<address class=“col-xs-3 col-xs-push-1 col-sm-push-1”>
+
+Contacto <br>
+
+Mail: contacto@empresa.com.mx <br>
+
+Tel: (722) 555 7923<br>
+
+(55) 3497 1049<br>
+
+</address>
+
+</div>
+
+<div class=“row”>
+
+<div class=“col-xs-12 col-md-5”>
+<!--php-->
+   <form class=“form-horizontal” action=“correo.php” id=“enviar” name=“enviar” method=“post”>
+
+    <div class=“form-group”>
+
+     <label for=“Nombre” class=“control-label col-xs-2”>Nombre</label>
+
+<div class=“col-xs-5”>
+
+     <input type=“text” name=“nombre” class=“form-control” id=“nombre” placeholder=“Nombre”>
+
+     </div>
+
+    </div>
+
+<div class=“form-group”>
+
+<label for=“correo” class=“control-label col-xs-2”>Correo</label>
+
+<div class=“col-xs-5”>
+
+<input type=“email” name=“correo” class=“form-control” id=“correo” placeholder=“Correo”>
+
+</div>
+
+</div>
+
+<div class=“form-group”>
+          <label for=“asunto” name=“asunto” class=“control-label col-xs-2”>Asunto</label>
+          
+          <div class=“col-xs-5”>
+          <textarea class=“form-control” name=“asunto” rows=“8” cols=“40”></textarea>
+           </div>
+
+</div>
+
+<div class=“form-group”>
+
+<div class=“col-xs-2 col-xs-push-5”>
+
+  <input type=“submit” name=“submit” class=“btn btn-info” id=“enviar”>
+
+</div>
+
+</div>
+
+</form>
+
+<div id=“resultado”></div>
+
+      </div>
+
+</div>
+
+<!-- -Latest compiled and minified CSS -->
+
+<link rel=“stylesheet” href=“https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css” integrity=“sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7” crossorigin=“anonymous”>
+<!--
+<!-– Optional theme –->-->
+
+<link rel=“stylesheet” href=“https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css” integrity=“sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r” crossorigin=“anonymous”>
+
+<script src=“http://code.jquery.com/jquery-1.10.2.min.js”></script>
+
+<!--
+<!– Latest compiled and minified JavaScript –>-->
+
+<script src=“https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js” integrity=“sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS” crossorigin=“anonymous”></script>
+<!--
+<!– Este script permite que no se recarge la página y aparezca abajo el mensaje de Jquery –>-->
+
+<script type=“text/javascript”>
+
+$(document).ready(function() {
+
+   $().ajaxStart(function() {
+
+       $(’#loading’).show();
+
+       $(’#resultado’).hide();
+
+   }).ajaxStop(function() {
+
+       $(’#loading’).hide();
+
+       $(’#resultado’).fadeIn('slow’);
+   });
+
+   $(’#enviar’).submit(function() {
+
+       $.ajax({
+
+           type: 'POST’,
+
+           url: $(this).attr('action’),
+
+           data: $(this).serialize(),
+
+           success: function(data) {
+
+               $(’#resultado’).html(data);
+
+           }
+
+       })
+
+       return false;
+
+   });
+
+})
+
+</script>
+
+</html>
