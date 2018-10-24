@@ -11,8 +11,7 @@
           
 
         var valor = document.getElementById("texto").value;//lo transforma s
-        document.getElementById("txt").innerHTML=valor;    //este hace que seponga en el documento     
-var j;
+       var j;
 var i;
 var cont;
 var es="";
@@ -65,6 +64,7 @@ else
 else
    document.write("ERROR, no se aceptan numeros decimales");
               
+ document.getElementById("txt").innerHTML=recibir();    //este hace que seponga en el documento     
 
 }
        
@@ -82,7 +82,7 @@ else
 <br>
 <div id="txt"></div>
 </form>
-
+<p id="txt"></p>
 </body>
 
 

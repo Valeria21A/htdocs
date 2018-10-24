@@ -45,6 +45,55 @@ jQuery(window).load(function () {
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400' rel='stylesheet' type='text/css'>
 <![endif]-->
+
+
+<!--ANALISISSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS-->S
+<!-- Etiqueta global de sitio (gtag.js) de Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'GA_TRACKING_ID');
+</script>
+<!--FUNCIONES jquery desapareces y aparecer con boton-->
+<script>
+$(document).ready(function(){
+    $("#hide").click(function(){
+        $("p,h2").hide();
+           
+    });
+   
+     $("#hide2").click(function(){
+        $("p,h2").hide();
+           
+    });
+
+    $("#show").click(function(){
+        $("p,h2").show();
+    });
+
+    $("#show2").click(function(){
+        $("p,h2").show();
+    });
+});
+</script>
+
+
+<!--fncion para dar cli en p y h3-->
+<script>
+$(document).ready(function(){
+    $("p,h3").click(function(){
+        $(this).hide();
+    });
+});
+</script>
+
+<!--colores bootstrap-->
+
+
+
 </head>
 <body>
 <div class="spinner"></div>
@@ -91,12 +140,25 @@ jQuery(window).load(function () {
           </ul>
         </div>
         <span id="responsiveFlag"></span>
-        <div class="block-slogan">
-          <h2>Bienvenidos al blog de VALERIA!</h2>
+    
+  <!--OHOOOOOOOOOOOOOOOOOOOOO  ejercicio jquery y bootstrap con los botones -->
+         
+       <div class="block-slogan">
+         <h2>Bienvenidos al blog de VALERIA!</h2>
           <div>
+<!--<p>.</p>-->
+  <p><a href="ejerciciosjs.html" > Quieres jugar? </a> </p>
+  <button type="button" class="btn btn-success" id="hide2">Sacar</button>
+  <button type="button" class="btn btn-info" id="show2">Poner</button>
+<!--botones normalesssssssssssss
+<button id="hide">Sacar</button>
+<button id="show">Poner</button>-->
+ 
+
+
             <!--<p><a href="#" class="link-1">Click here</a> Bienvenidos!</p>
 -->            
-            <p><a href="ejerciciosjs.html" > Quieres jugar? </a> </p>
+          
 
 
 		
@@ -120,10 +182,8 @@ jQuery(window).load(function () {
 					<a href="#" class="btn btn-1"> <a href="http://167.99.3.9/blog.html">Leer mas</a> 
 				  
 				  </section>
-        
-
 		</div>
-            </li>
+     </li>
             <li class="span3">
               <div class="thumbnail thumbnail-1">
                 <h3>Evaluacion</h3>
@@ -133,6 +193,7 @@ jQuery(window).load(function () {
                   <a href="#" class="btn btn-1"><a href="http://167.99.3.9/blog.html">Leer mas</a> 
               </div>
             </li>
+
             <li class="span3">
               <div class="thumbnail thumbnail-1">
                 <h3>Servidor</h3>
@@ -141,6 +202,7 @@ jQuery(window).load(function () {
                    <a href="#" class="btn btn-1"><a href="http://167.99.3.9/blog.html">Leer mas</a> 
               </div>
             </li>
+
             <li class="span3">
               <div class="thumbnail thumbnail-1">
                 <h3 class="title-1 extra">Wordpress</h3>
@@ -150,6 +212,32 @@ jQuery(window).load(function () {
                   <a href="#" class="btn btn-1"><a href="http://167.99.3.9/blog.html">Leer mas</a> 
               </div>
             </li>
+
+                  <li class="span3">
+              <div class="thumbnail thumbnail-1">
+                <h3 class="title-1 extra">Boostrap</h3>
+                <img src="img/boot-img22.png" alt="">
+                <section> <strong>Que es, como funciona y evaluacion.</strong>
+                 
+                  <a href="#" class="btn btn-1"><a href="http://167.99.3.9/blog.html">Leer mas</a> 
+              </div>
+            </li>
+
+
+            <li class="span3">
+              <div class="thumbnail thumbnail-1">
+                <h3 class="title-1 extra">Jquery</h3>
+                <img src="img/jquery-img1.jpg" alt="">
+                <section> <strong>Que es, funciones y evaluacion</strong>
+                  <a href="#" class="btn btn-1"><a href="http://167.99.3.9/blog.html">Leer mas</a> 
+              </div>
+            </li>
+
+
+
+
+
+
           </ul>
         </div>
       </div>
@@ -158,6 +246,8 @@ jQuery(window).load(function () {
       <div class="row">
         <article class="span6">
           <h3>Mi nombre es Valeria Alvarez</h3>
+          
+
           <div class="wrapper">
             <figure class="img-indent"><img src="img/foto3-m3.jpg" alt=""></figure>
             <div class="inner-1 overflow extra">
@@ -200,9 +290,9 @@ En esta página se plasmará todo lo que se va hacer en la materia de graficaci�
   <div class="container clearfix">
     <ul class="list-social pull-right">
       <li><a class="icon-1" href="https://www.facebook.com/ValeritaAlvarez99"></a></li>
-      <li><a class="icon-2" href="#"></a></li>
-      <li><a class="icon-3" href="#"></a></li>
-      <li><a class="icon-4" href="#"></a></li>
+      <li><a class="icon-2" href="https://www.instagram.com/valealva21/"></a></li>
+      <li><a class="icon-3" href="https://twitter.com/valeee55"></a></li>
+      <li><a class="icon-4" href="https://plus.google.com/u/0/108338616400340956802?tab=wX"></a></li>
     </ul>
     <div class="privacy pull-left">Diseñado por: <a href="http://167.99.3.9/index.html">VALERIA</a> </div>
   </div>
