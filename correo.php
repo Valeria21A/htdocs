@@ -1,13 +1,13 @@
 <?php
 //Comprobamos que se haya presionado el boton enviar
-if(isset($_POST[‘enviar’])){
+if(isset($_POST['enviar'])){
 //Guardamos en variables los datos enviados
-$nombre = $_POST[‘nombre’];
-$email = $_POST[’email’];
-$telefono = $_POST[‘telefono’];
-$ciudad = $_POST[‘ciudad’];
-$pais = $_POST[‘pais’];
-$mensaje = $_POST[‘mensaje’];
+$nombre = $_POST['nombre'];
+$email = $_POST['email'];
+$telefono = $_POST['telefono'];
+$ciudad = $_POST['ciudad'];
+$pais = $_POST['pais'];
+$mensaje = $_POST['mensaje'];
 
 ///Validamos del lado del servidor que el nombre y el email no estén vacios
 if($nombre == ”){
@@ -47,18 +47,26 @@ $mensaje = "
 </tr>
 </table>
 ";
+/*
+$headers = "MIME-Version: 1.0\r\n"; 
+$headers .= "Content-type: text/html; charset=iso-8859-1\r\n"; 
+//dirección del remitente 
+$headers .= "From: Geeky Theory < tu_dirección_email >\r\n";*/
+
+
 
 //Cabeceras del correo
 $headers = "From: $nombre <$email>\r\n"; //Quien envia?
 $headers .= "X-Mailer: PHP5\n";
-$headers .= ‘MIME-Version: 1.0’ . "\n";
-$headers .= ‘Content-type: text/html; charset=iso-8859-1’ . "\r\n"; //
+$headers = "MIME-Version: 1.0\r\n"; 
+$headers .= "Content-type: text/html; charset=iso-8859-1\r\n"; 
+//$headers .= ‘Content-type: text/html; charset=iso-8859-1’ . "\r\n"; //
 
 //Comprobamos que los datos enviados a la función MAIL de PHP estén bien y si es correcto enviamos
 if(mail($para, $asunto, $mensaje, $headers)){
 echo "Su mensaje se ha enviado correctamente";
 echo "<br />";
-echo ‘<a href="contactoos.html">Volver</a>’;
+//echo "<a href="contactoos.html">Volver</a>";
 }else{
 echo "Hubo un error en el envío inténtelo más tarde";
 }
