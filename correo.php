@@ -58,7 +58,7 @@ $headers .= ‘Content-type: text/html; charset=iso-8859-1’ . "\r\n"; //
 if(mail($para, $asunto, $mensaje, $headers)){
 echo "Su mensaje se ha enviado correctamente";
 echo "<br />";
-echo ‘<a href="../contactoos.html">Volver</a>’;
+echo ‘<a href="contactoos.html">Volver</a>’;
 }else{
 echo "Hubo un error en el envío inténtelo más tarde";
 }
