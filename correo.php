@@ -19,7 +19,7 @@ else if($email == ""){
 echo "Debe ingresar su email";
 }else{
 $para = "vale79211@gmail.com";//Email al que se enviará
-$asunto = "Contacto para su sitio web";//Puedes cambiar el asunto del mensaje desde aqui
+$asunto = "";//Puedes cambiar el asunto del mensaje desde aqui
 //Este sería el cuerpo del mensaje
 $mensaje = "
 <table border=’0′ cellspacing=’3′ cellpadding=’2′>
@@ -55,10 +55,18 @@ $headers = "From: $nombre <vale79211@gmail.com>\r\n"; //Quien envia?
 $headers .= "X-Mailer: PHP5\n";
 $headers .= ‘MIME-Version: 1.0’ . "\n";
 $headers .= ‘Content-type: text/html; charset=iso-8859-1’ . "\r\n"; //*/
-$headers = "From: $nombre <$email>\r\n"; //Quien envia?
+//$headers = "From: $nombre <$email>\r\n"; //Quien envia?
+//$headers = "From: $nombre <$email>\r\n"; //Quien envia?
+/*
+$headers = "From: $email \r\n"; //Quien envia?
+
 $headers .= "X-Mailer: PHP5\n";
 $headers = "MIME-Version: 1.0\r\n"; 
-$headers .= "Content-type: text/html; charset=iso-8859-1\r\n"; 
+$headers .= "Content-type: text/html; charset=iso-8859-1 \r\n"; 
+*/
+$headers = "MIME-Version: 1.0" . "\r\n";
+$headers .= "Content-type: text/html; charset=iso-8859-1" . "\r\n";
+$headers .= "From: $email" . "\r\n" . "Reply-To: $email" . "\r\n" . "X-Mailer: PHP/" . phpversion();
 
 
 //Comprobamos que los datos enviados a la función MAIL de PHP estén bien y si es correcto enviamos
