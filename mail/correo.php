@@ -1,6 +1,6 @@
 <?php
 
-
+//prueba
 $destino="vale79211@gmail.com";
 $nombre = $_POST['nombre'];
 $asunto = $_POST['asunto'];
