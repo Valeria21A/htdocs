@@ -1,18 +1,24 @@
 <?php
 
 //prueba
-$destino="vale79211@gmail.com";
+
 $nombre = $_POST['nombre'];
-$asunto = $_POST['asunto'];
+//$asunto = $_POST['asunto'];
 $email = $_POST['email'];
 $telefono = $_POST['telefono'];
+$mensaje = $_POST['mensaje'];
+/*
 $ciudad = $_POST['ciudad'];
 $pais = $_POST['pais'];
-$mensaje = $_POST['mensaje'];
-$carta ="De: $nombre \n";
-$carta .="Correo:  $correo \n";
-$carta .="Telefono: $telefono \n";
+*/
+$destino = "vale79211@gmail.com";
+$asunto = "Contacto desde nuestra web";
+
+$carta = "De: $nombre \n";
+$carta .= "Correo:  $email \n";
+$carta .= "Telefono: $telefono \n";
 $carta .= "Mensaje: $mensaje ";
+
 /*
 $nombre=$_POST["nombre"];
 $asunto = $_POST["asunto"];
@@ -33,7 +39,7 @@ else{
 }
 */
 
-mail($destinatario, $asunto, $carta);
+mail($destino, $asunto, $carta);
 header("Location:mensaje.html");
 
 

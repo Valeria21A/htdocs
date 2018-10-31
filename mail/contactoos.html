@@ -23,6 +23,28 @@ PRUEBA –>
 </head>
 
 <body>
+	<form action="correo.php" method="post" class="form_contact">
+
+		<div class="user_info">
+			<label for="names">NOMBRE </label>
+			<input type="text" id="names" name="nombre" required>
+
+
+			<label for="phone">Telefono </label>
+			<input type="text" id="phone" name="telefono" required>
+
+			<label for="email">correo *</label>
+			<input type="text" id="emai" name="email" required>
+
+
+			<label for="mensaje">mensaje *</label>
+			<input id="mensaje" name="mensaje" required>
+
+			<input type="submit" name="enviar mensaje" id="btnSend" >
+		</div>
+		
+	</form>
+	<!--
 <div id="formulario">
 <form role="form" action="correo.php" method="post" id="contacto" title="Nombre">
 <label for="nombre">Nombre</label>
@@ -37,6 +59,8 @@ PRUEBA –>
 <input name="asunto" type="text" required="required" id="asunto" placeholder="asunto" tabindex="2" title="Asunto">
 <br>
 -->
+
+<!--
 <label for="telefono">Teléfono</label>
 <input name="telefono" type="text" id="telefono" placeholder="telefono" tabindex="3" title="Telefono">
 <br>
@@ -50,10 +74,12 @@ PRUEBA –>
 <textarea name="mensaje" rows="4" id="mensaje" placeholder="mensaje" tabindex="6"></textarea>
 <br>
 <input type="submit" name="enviar" tabindex="7" value="Enviar"><!--typo =submit procesa al php-->
+
+<!--
 <input type="reset" tabindex="8" value="Borrar">
 <input type="hidden" name="estado" value="1">
 </form>
-
+-->
 
 </div>
 
