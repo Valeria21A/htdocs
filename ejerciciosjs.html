@@ -3,9 +3,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-   <title>Figura</title>
 
-<script language="javascript">     
+<script language="javascript" >     
     function recibir()
 {
           
@@ -33,7 +32,7 @@ else
      { 
       for(j=0;j<i+1;j++)
       { 
-                document.write("*");
+                document.write("*" + txt.fontcolor("red"));
       }
                document.write("<br />");
             /*    es=es+" ";
@@ -51,7 +50,7 @@ else
                 }
       else {
 
-                document.write("*");
+                document.write("*" + txt.fontcolor("red"));
             }
      }
    /*   es=es+" ";
@@ -75,8 +74,9 @@ else
 
 
 </head>
-<body style="background-image: url('img/rosa-rosa1.jpg');">
-
+<!--
+<body style="background-image: url('img/rosa-rosa1.jpg');"-->
+<body >
 <form id="formulario" name="formu">
     	
     	<br>

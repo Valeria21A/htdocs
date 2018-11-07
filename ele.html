@@ -1,0 +1,1144 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<title>KataKlimt | Folio</title>
+<meta charset="utf-8">
+<link rel="icon" href="img/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="css/bootstrap.css" type="text/css" media="screen">
+<link rel="stylesheet" href="css/responsive.css" type="text/css" media="screen">
+<link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="css/touchTouch.css" type="text/css" media="screen">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+<script src="js/jquery.js"></script>
+<script src="js/superfish.js"></script>
+<script src="js/jquery.easing.1.3.js"></script>
+<script src="js/jquery.cookie.js"></script>
+<script src="js/touchTouch.jquery.js"></script>
+<script>
+if ($(window).width() > 1024) {
+    document.write("<" + "script src='js/jquery.preloader.js'></" + "script>");
+}
+</script>
+<script>
+jQuery(window).load(function () {
+    $x = $(window).width();
+    if ($x > 1024) {
+        jQuery("#content .row").preloader();
+    }
+    jQuery('.magnifier').touchTouch();
+    jQuery('.spinner').animate({
+        'opacity': 0
+    }, 1000, 'easeOutCubic', function () {
+        jQuery(this).css('display', 'none')
+    });
+});
+</script>
+<!--<![endif]-->
+<!--[if lt IE 9]>
+<script src="js/html5.js"></script>
+<link rel="stylesheet" href="css/docs.css" type="text/css" media="screen">
+<link rel="stylesheet" href="css/ie.css" type="text/css" media="screen">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400' rel='stylesheet' type='text/css'>
+<![endif]-->
+</head>
+<body>
+<div class="spinner"></div>
+<header>
+  <div class="container clearfix">
+    <div class="row">
+      <div class="span12">
+        <div class="navbar navbar_">
+          <div class="container">
+            <h1 class="brand brand_"><a href="index.html"><img alt="" src="img/prueba_opt.jpg"> </a></h1>
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse_">Menu <span class="icon-bar"></span> </a>
+            <div class="nav-collapse nav-collapse_  collapse">
+              <ul class="nav sf-menu">
+                <li><a href="index.html">Home</a></li>
+                <li class="sub-menu"><a href="services.html">Services</a>
+                  <ul>
+                    <li><a href="#">Dolore </a></li>
+                    <li><a href="#">Consecte</a></li>
+                    <li><a href="#">Conseq</a></li>
+                  </ul>
+                </li>
+                                <li><a href="folio.html">Imagenes</a></li>
+               <li><a href="blog.html">Blog</a></li>
+
+                <li><a href="contact.html">Contactos</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+Elevator 
+Nivel 1
+<pre>{
+    init: function(elevators, floors) {
+        var elevator = elevators[0]; // Let's use the first elevator
+
+        // Whenever the elevator is idle (has no more queued destinations) ...
+        elevator.on("idle", function() {
+            // let's go to all the floors (or did we forget one?)
+           for(x=0;x<=2;x++)
+            elevator.goToFloor(x);
+      
+        })
+        
+
+        
+    },
+       
+    update: function(dt, elevators, floors) {
+        // We normally don't need to do anything here
+    }
+}</pre>
+
+Nivel 2 al 3
+<pre>
+  {
+    init: function(elevators, floors) {
+        var elevator = elevators[0]; // Let's use the first elevator
+
+        // Whenever the elevator is idle (has no more queued destinations) ...
+        elevator.on("idle", function() {
+            // let's go to all the floors (or did we forget one?)
+           for(x=0;x<=4;x++)
+            elevator.goToFloor(x);
+      
+        });
+  
+    },
+       
+    update: function(dt, elevators, floors) {
+        // We normally don't need to do anything here
+    } </pre>
+
+    Nivel 4  al 5
+<pre>{
+    init: function (elevators, floors) {
+
+        function queueDestinationForElevator(elevator, floorNum) {
+            if (elevator.destinationQueue.length) {
+                if (isElevatorGoingUp(elevator)) {
+                    if (floorNum < elevator.destinationQueue[0]) {
+                        if (elevator.currentFloor() < floorNum) {
+                            elevator.destinationQueue.splice(0, 0, floorNum);
+                        } else {
+                            elevator.destinationQueue.push(floorNum);
+                        }
+                    } else if (floorNum > elevator.destinationQueue[elevator.destinationQueue.length - 1]) {
+                        elevator.destinationQueue.push(floorNum);
+                    } else {
+                        for (var i = 0; i < (elevator.destinationQueue.length - 1); i++) {
+                            if ((floorNum >= elevator.destinationQueue[i]) && (floorNum <= elevator.destinationQueue[i + 1])) {
+                                elevator.destinationQueue.splice(i + 1, 0, floorNum);
+                                break;
+                            }
+                        }
+                    }
+                } else {
+                    if (floorNum > elevator.destinationQueue[0]) {
+                        if (elevator.currentFloor() > floorNum) {
+                            elevator.destinationQueue.splice(0, 0, floorNum);
+                        } else {
+                            elevator.destinationQueue.push(floorNum);
+                        }
+                    } else if (floorNum < elevator.destinationQueue[elevator.destinationQueue.length - 1]) {
+                        elevator.destinationQueue.push(floorNum);
+                    } else {
+                        for (var i = 0; i < (elevator.destinationQueue.length - 1); i++) {
+                            if ((floorNum <= elevator.destinationQueue[i]) && (floorNum >= elevator.destinationQueue[i + 1])) {
+                                elevator.destinationQueue.splice(i + 1, 0, floorNum);
+                                break;
+                            }
+                        }
+                    }
+                }
+                elevator.checkDestinationQueue();
+            } else {
+                elevator.goToFloor(floorNum);
+            }
+        }
+
+        function isElevatorGoingUp(elevator) {
+            return !elevator.destinationQueue.length || (elevator.currentFloor() < elevator.destinationQueue[0]);
+        }
+
+        function isElevatorGoingDown(elevator) {
+            return !elevator.destinationQueue.length || (elevator.currentFloor() > elevator.destinationQueue[0]);
+        }
+
+        function isFloorPickupableForElevator(elevator, floorNum) {
+            return !elevator.destinationQueue.length
+                || (isElevatorGoingUp(elevator) && (elevator.currentFloor() < floorNum))
+                || (isElevatorGoingDown(elevator) && (elevator.currentFloor() > floorNum));
+        }
+
+        function scheduleElevatorForFloorButtonEvent(floor, isGoingUp) {
+            var candidate = null;
+            elevators.forEach(function (elevator) {
+                if ((elevator.loadFactor() < 1) || (elevator.destinationQueue[0] == floor.floorNum())) {
+                    if (candidate) {
+                        candidate.floorDiff = Math.abs(candidate.currentFloor() - floor.floorNum());
+                        elevator.floorDiff = Math.abs(elevator.currentFloor() - floor.floorNum());
+                        if (!elevator.destinationQueue.length) {
+                            if (!candidate.destinationQueue.length) {
+                                if ((elevator.floorDiff < candidate.floorDiff) || ((elevator.floorDiff == candidate.floorDiff) && (elevator.loadFactor() < candidate.loadFactor()))) {
+                                    candidate = elevator;
+                                }
+                            } else {
+                                candidate = elevator;
+                            }
+                        } else {
+                            if ((elevator.floorDiff < candidate.floorDiff) && (elevator.loadFactor() < candidate.loadFactor()) && ((isElevatorGoingUp(elevator) == isGoingUp) || (isElevatorGoingDown(elevator) != isGoingUp)) && isFloorPickupableForElevator(elevator, floor.floorNum())) {
+                                candidate = elevator;
+                            }
+                        }
+                    } else {
+                        candidate = elevator;
+                    }
+                }
+            });
+            if (candidate) {
+                queueDestinationForElevator(candidate, floor.floorNum());
+            } else {
+                elevators.sort(function (a, b) {
+                    return (a.floorDiff < b.floorDiff) && (a.loadFactor() < b.loadFactor());
+                });
+                queueDestinationForElevator(elevators[0], floor.floorNum());
+            }
+        }
+
+        elevators.forEach(function (elevator) {
+            elevator.on('floor_button_pressed', function (floorNum) {
+                queueDestinationForElevator(elevator, floorNum);
+            });
+
+            elevator.on('stopped_at_floor', function (floorNum) {
+                elevator.destinationQueue.forEach(function (destination, index) {
+                    if (destination == floorNum) {
+                        elevator.destinationQueue.splice(index, 1);
+                    }
+                });
+
+            });
+        });
+
+        floors.forEach(function (floor) {
+            floor.on('up_button_pressed', function () {
+                scheduleElevatorForFloorButtonEvent(floor, true);
+            });
+            floor.on('down_button_pressed', function () {
+                scheduleElevatorForFloorButtonEvent(floor, false);
+            });
+        });
+    },
+    update: function(dt, elevators, floors) {
+        // We normally don't need to do anything here
+    }
+}</pre>
+Nivel 5 al 9
+<pre>
+  {
+    init: function(elevators, floors) {
+        elevators.forEach(function(elevator, index) {
+
+            elevator.on("floor_button_pressed", function(floorNum) {
+                if (elevator.destinationQueue.indexOf(floorNum) == -1) { elevator.goToFloor(floorNum); }
+            });
+
+            elevator.on("passing_floor", function(floorNum, direction) {
+                // Pick up passengers on the floor if there is room
+                if (elevator.loadFactor() <= 0.7) {
+                    if (direction == "up" && floors[floorNum].requestedUp) { elevator.goToFloor(floorNum, true); }
+                    if (direction == "down" && floors[floorNum].requestedDown) { elevator.goToFloor(floorNum, true); }
+                }
+
+                // Stop at the floor first if it is in the queue
+                if (elevator.destinationQueue.indexOf(floorNum) != -1) { 
+                    elevator.destinationQueue.splice(elevator.destinationQueue.indexOf(floorNum), 1);
+                    elevator.goToFloor(floorNum, true); 
+                }
+            });
+
+            elevator.on("stopped_at_floor", function(floorNum) {
+                if (elevator.destinationDirection() == "up") {
+                    floors[floorNum].requestedUp = false;
+                } else {
+                    floors[floorNum].requestedDown = false;
+                }
+            });
+
+            elevator.on("idle", function() {
+                var requestedFloors = floors.filter(function(f) { return f.requestedUp || f.requestedDown; });
+                var distances = requestedFloors.map(function(f) { return Math.abs(f.floorNum() - elevator.currentFloor()); });
+                var floorIndex = Math.min.apply(null, distances);
+
+                if (requestedFloors[floorIndex]) {
+                    var floorNum = requestedFloors[floorIndex].floorNum();
+
+                    floors[floorNum].requestedUp = false;
+                    floors[floorNum].requestedDown = false;
+                    elevator.goToFloor(floorNum);
+                } else {
+                    elevator.goToFloor(0);
+                }
+            })
+        });
+
+        floors.forEach(function(floor, index) {
+            floor.requestedUp = false;
+            floor.requestedDown = false;
+
+            floor.on("up_button_pressed", function() {
+                floor.requestedUp = true;
+            });
+
+            floor.on("down_button_pressed", function() {
+                floor.requestedDown = true;
+            });
+        });
+    },
+        update: function(dt, elevators, floors) {
+            // We normally don't need to do anything here
+        }
+}
+</pre>
+Nivel 10 al 11
+<pre>{
+
+  init: function(elevators, floors) {
+
+
+
+    /* Finds best elevator for passed floor */
+
+    var getIdleElevator = function(floorNum, direction){
+
+      console.log('Looking for elevator from', floorNum, direction, 'from', elevators.map(function(elevator){ return elevator.description() }));
+
+      var floorMatch = elevators
+
+      .filter(function(elevator){ return elevator.destination === floorNum && elevator.direction === direction})
+
+      .pop();
+
+      if (floorMatch) {
+
+        console.log('Found elevator with directly matched floor and direction:', floorMatch.description());
+
+        return null; // caller will be all good, elevator comming anyway;
+
+      };
+
+
+
+      var passThrough = elevators
+
+      .filter(function(elevator){
+
+        if (direction === 'up') {
+
+          return elevator.destination > floorNum && elevator.currentFloor() < floorNum;
+
+        } else if (direction === 'down') {
+
+          return elevator.destination < floorNum && elevator.currentFloor() > floorNum;
+
+        } else {
+
+          return false;
+
+        }
+
+      })
+
+      .pop()
+
+      if (passThrough) {
+
+        console.log('Found elevator with on the way:', passThrough.description());
+
+        return null; // caller will be all good, elevator comming anyway;
+
+      };
+
+
+
+      //otherwise return closest
+
+      console.log('Fallback to finding closest');
+
+      return elevators
+
+        .filter(function(elevator) { return elevator.isIdle() })
+
+        .sort(function(a, b){ return Math.abs(b - floorNum) - Math.abs(a - floorNum)})
+
+        .pop();
+
+    };
+
+
+
+    /* Finds closest floor with pressed button for passed floor */
+
+    var getBusyFloor = function(floorNum) {
+
+      var isBusy = function(floor){
+
+        return floor.buttonStates.up === 'activated' || floor.buttonStates.down === 'activated'
+
+      };
+
+
+
+      if (isBusy(floors[floorNum])) {
+
+        return floors[floorNum];
+
+      };
+
+
+
+      return floors
+
+        .filter(isBusy)
+
+        .sort(function(a, b){ return Math.abs(b.floorNum() - floorNum) - Math.abs(a.floorNum() - floorNum)})
+
+        .pop();
+
+    }
+
+
+
+    var isFloorRequestedOutside = function(floorNum, direction) { return floors[floorNum].buttonStates[direction] === 'activated'; }
+
+
+
+    var i = 0;
+
+    elevators.forEach(function(elevator) {
+
+      elevator.number = i++;
+
+      elevator.destination = null;
+
+      elevator.direction = null;
+
+
+
+      elevator.description = function() { return "elevator-" +
+
+        elevator.number +
+
+        (elevator.destination !== null ? '->' + elevator.destination : '') +
+
+        (elevator.direction ? '-' + elevator.direction : '')}
+
+      elevator.isIdle = function() { return !elevator.destination };
+
+      elevator.isFloorRequestedInside = function(floorNum) { return elevator.getPressedFloors().indexOf(floorNum) > 0 };
+
+      elevator.switchLights = function(direction) {
+
+        if (direction === 'up') {
+
+          elevator.goingUpIndicator(true);
+
+          elevator.goingDownIndicator(false);
+
+        } else if (direction === 'down') {
+
+          elevator.goingDownIndicator(true);
+
+          elevator.goingUpIndicator(false);
+
+        } else {
+
+          elevator.goingUpIndicator(true);
+
+          elevator.goingDownIndicator(true);
+
+        }
+
+      }
+
+
+
+      elevator.navigateTo = function(floorNum, direction) {
+
+        if (elevator.destination !== null) {
+
+          console.log(elevator.description(), 'Attempted to reschedule running elevator, X_X');
+
+          return;
+
+        }
+
+
+
+        elevator.destination = floorNum;
+
+        elevator.direction = direction;
+
+        console.log(elevator.description(), 'Sheduling elevator to', floorNum, direction);
+
+
+
+        if (floorNum > elevator.currentFloor()) {
+
+          elevator.switchLights('up');
+
+        } else {
+
+          elevator.switchLights('down');
+
+        }
+
+        elevator.goToFloor(floorNum);
+
+      };
+
+
+
+      elevator.continue = function() {
+
+        // check if arrived to destination
+
+        if (elevator.destination === elevator.currentFloor()) {
+
+          console.log(elevator.description(), 'Reached destination on', elevator.currentFloor(), 'switching light to:', elevator.direction, 'check queue:', elevator.destinationQueue);
+
+          elevator.switchLights(elevator.direction);
+
+
+
+          // looks like 'idle' will be triggered after people come in and press buttons
+
+          // but not if elevator is busy
+
+          if (elevator.loadFactor() === 1){
+
+            elevator.moveInternally();
+
+          }
+
+        };
+
+      };
+
+
+
+      elevator.getInternalDestination = function() {
+
+        // sort floors based on max amount of floors between current and pressed
+
+        var current = elevator.currentFloor();
+
+        var floorsBetween = function(target) { return elevator.getPressedFloors().filter( function(pressed){ return pressed < Math.abs(target - current) }) }
+
+        return elevator
+
+          .getPressedFloors()
+
+          .sort(function(a, b){ return Math.abs(b - current) - Math.abs(a - current)})
+
+          .pop();
+
+      }
+
+
+
+      /* tries to move elevator, based on internal state, like elevator buttons */
+
+      elevator.moveInternally = function(){
+
+        // this is optimisation for best moves amount
+
+        //    if (elevator.loadFactor() < 0.7) {
+
+        //     console.log(elevator.description(), 'Not enough people inside elevator');
+
+        //     return false;
+
+        //    };
+
+
+
+        var internalDestination = elevator.getInternalDestination();
+
+        if (internalDestination !== undefined) {
+
+          console.log(elevator.description(), 'There are still people inside, best destination:', internalDestination);
+
+          elevator.navigateTo(internalDestination);
+
+        }
+
+        return internalDestination !== undefined
+
+      }
+
+
+
+      /* tries to move elevator, based on external state, like floors state */
+
+      elevator.moveExternally = function(){
+
+        var busyFloor = getBusyFloor(elevator.currentFloor());
+
+        if (busyFloor && busyFloor.buttonStates.up === 'activated') {
+
+          console.log(elevator.description(), 'No people inside, but there is some floor waiting:', busyFloor.floorNum(), 'up');
+
+          elevator.navigateTo(busyFloor.floorNum(), 'up');
+
+          return true;
+
+        } else if (busyFloor && busyFloor.buttonStates.down === 'activated'){
+
+          console.log(elevator.description(), 'No people inside, but there is some floor waiting:', busyFloor.floorNum(), 'down');
+
+          elevator.navigateTo(busyFloor.floorNum(), 'down');
+
+          return true;
+
+        } else {
+
+          return false;
+
+        }
+
+      }
+
+      elevator.on("idle", function() {
+
+        console.log(elevator.description(), 'Idle triggered for');
+
+
+
+        elevator.destination = null;
+
+        elevator.direction = null;
+
+        console.log(elevator.description(), 'State cleared');
+
+
+
+        var moved = elevator.moveInternally();
+
+        if (!moved) { elevator.moveExternally() };
+
+
+
+      });
+
+
+
+      elevator.on("passing_floor", function(floorNum, direction) {
+
+        if (elevator.isFloorRequestedInside(floorNum)) {
+
+          console.log(elevator.description(), 'Stopping because requested from inside elevator', floorNum)
+
+          elevator.goToFloor(floorNum);
+
+        }
+
+        if (isFloorRequestedOutside(floorNum, elevator.destinationDirection())){
+
+          console.log(elevator.description(), 'Stopping at requested from ouside floor', floorNum)
+
+          elevator.goToFloor(floorNum);
+
+        }
+
+      });
+
+
+
+      elevator.on("stopped_at_floor", function(floorNum) {
+
+        console.log(elevator.description(), 'Stopped at', floorNum);
+
+        elevator.continue();
+
+      })
+
+
+
+      elevator.on("floor_button_pressed", function(floorNum) {
+
+        console.log(elevator.description(), 'New button pressed', floorNum);
+
+        if (elevator.isIdle()) {
+
+          elevator.moveInternally();
+
+        }
+
+      })
+
+    })
+
+    floors.forEach(function(floor){
+
+      floor.on("up_button_pressed", function() {
+
+        var elevator = getIdleElevator(floor.floorNum(), 'up');
+
+        if (elevator) {
+
+          console.log('UP pressed on', floor.floorNum(), 'found idle elevator: ', elevator.description());
+
+          // for best moves metric this should be commented out:
+
+          elevator.navigateTo(floor.floorNum(), 'up');
+
+        }
+
+      });
+
+      floor.on("down_button_pressed", function() {
+
+        var elevator = getIdleElevator(floor.floorNum(), 'down');
+
+        if (elevator) {
+
+          console.log('DOWN pressed on', floor.floorNum(), 'found idle elevator: ', elevator.description());
+
+          // for best moves metric this should be commented out:
+
+          elevator.navigateTo(floor.floorNum(), 'down');
+
+        }
+
+      });
+
+    });
+
+  },
+
+    update: function(dt, elevators, floors) { /* We normally don't need to do anything here */ }
+  }</pre>
+Nivel  12
+<pre>
+  {
+
+  init: function(elevators, floors) {
+
+    // helper global variables
+
+    var lastElevatorUsed = 0;
+
+    var powersaving = false;
+
+    var lastCalls = [];
+
+
+
+    // helper functions
+
+    sendOneElevatorTo = function(floor) {
+
+      var cargo = 1; var emptier = [0];
+
+      // if there's already an elevator scheduled there, ditch this
+
+      for (var e = 0; e < elevators.length; e++) {
+
+        if (elevators[e].destinationQueue.indexOf(floor) != -1) {
+
+          lastCalls.push(floor);
+
+          return;
+
+        }
+
+        if (elevators[e].loadFactor() < cargo) {
+
+          cargo = elevators[e].loadFactor();
+
+          emptier = [e];
+
+        } else if (elevators[e].loadFactor() == cargo) {
+
+          emptier.push(e);
+
+        }
+
+      }
+
+
+
+      var result = 0;
+
+      if (emptier.length == 1) { 
+
+        result = emptier.pop(); 
+
+      }
+
+      else {
+
+        // who has nothing better to do?
+
+        var shortestQueue = 0; var qlength = 100;
+
+        for (var p = 0; p < emptier.length; p++) {
+
+          var l = elevators[emptier[p]].destinationQueue.length;
+
+          if (l<qlength) {
+
+            l = qlength;
+
+            shortestQueue = p;
+
+          }
+
+        }
+
+        result=emptier[shortestQueue];
+
+      }
+
+
+
+      // emptier
+
+      sendElevatorTo(elevators[result],floor);
+
+
+
+    }
+
+
+
+    sendElevatorTo = function(elevator, floor) {
+
+      if (typeof(floor) == 'undefined') return;
+
+      // if this elevator is already scheduled there, don't add to the queue
+
+      if (elevator.destinationQueue.indexOf(floor) != -1) return;
+
+
+
+        elevator.goToFloor(floor);
+
+    }
+
+
+
+    // elevator events
+
+    var functioningElevators = elevators.length;
+
+    if (powersaving) functioningElevators = 1;
+
+    for (var e = 0; e < functioningElevators; e++) {
+
+      var elevator = elevators[e];
+
+      elevator.on("idle", function() {
+
+        // TODO: we should send to where are people waiting
+
+        sendElevatorTo(this,lastCalls.pop());
+
+        });
+
+      elevator.on("floor_button_pressed", function(floor) {
+
+        sendElevatorTo(this,floor);
+
+      });
+
+      elevator.on("stopped_at_floor", function(floorNum) {
+
+       
+        var queue = this.destinationQueue;
+
+        if (queue.length > 0) {
+
+        
+
+          // this.currentFloor();
+
+        }
+
+      });
+
+    }
+
+
+
+    // floor events
+
+    for (var f = 0; f < floors.length; f++) {
+
+      var floor = floors[f];
+
+      floor.on("up_button_pressed down_button_pressed", function() {
+
+        sendOneElevatorTo(this.floorNum());
+
+      });
+
+    }
+
+  },
+
+
+
+  update: function(dt, elevators, floors) {
+
+  }
+
+}
+</pre>
+Nivel 13 al 18
+<pre>{
+
+  init: function(elevators, floors) {
+
+    Array.prototype.getMaxValue = function() {
+
+      return Math.max.apply(null, this);
+
+    };
+
+    Array.prototype.getMinValue = function() {
+
+      return Math.min.apply(null, this);
+
+    };
+
+    Array.prototype.removeValue = function(what) {
+
+      while ((ax = this.indexOf(what)) !== -1) {
+
+        this.splice(ax, 1);
+
+      }
+
+      return this;
+
+    };
+
+    Array.prototype.addValue = function(what) {
+
+      if (!this.hasValue(what)) {
+
+        this.push(what);
+
+      }
+
+    };
+
+    Array.prototype.hasValue = function(what) {
+
+      return this.indexOf(what) != -1;
+
+    };
+
+    Array.prototype.sortByInteger = function() {
+
+      return this.sort(function (a, b) {
+
+        if (a < b)
+
+          return -1;
+
+        if (a > b)
+
+          return 1;
+
+        return 0;
+
+      })
+
+    };
+
+    var floorsThatWantUp = [];
+
+    var floorsThatWantDown = [];
+
+    elevators[0].goToFloor(100);
+
+    for (elevatorId in elevators) {
+
+      elevator = elevators[elevatorId];
+
+      if (typeof elevator != 'object') {
+
+        continue;
+
+      }
+
+      elevator.reordQueue = function (floor) {
+
+        this.destinationQueue.sortByInteger();
+
+        if (this.goingDownIndicator()) {
+
+          this.destinationQueue.reverse();
+
+        }
+
+        this.checkDestinationQueue();
+
+      }
+
+      elevator.addFloor = function(floor) {
+
+        this.goToFloor(floor);
+
+        this.reordQueue();
+
+      }
+
+      elevator.removeFloor = function(floor) {
+
+        this.destinationQueue.removeValue(floor);
+
+        this.checkDestinationQueue();
+
+      }
+
+      elevator.changeDirection = function (direction) {
+
+        direction = typeof direction != "undefined" ? direction : this.goingDownIndicator();
+
+        this.goingDownIndicator(!direction);
+
+        this.goingUpIndicator(direction);
+
+      }
+
+      elevator.changeDirection(true);
+
+      elevator.on("floor_button_pressed", function(floor) {
+
+        this.addFloor(floor);
+
+      });
+
+      elevator.on("passing_floor", function(floor) {
+
+        if (this.loadFactor() >= .8) {
+
+          return;
+
+        }
+
+        if (this.goingUpIndicator() && floorsThatWantUp.hasValue(floor)) {
+
+          this.goToFloor(floor, true);
+
+          floorsThatWantUp.removeValue(floor);
+
+        }
+
+        if (this.goingDownIndicator() && floorsThatWantDown.hasValue(floor)) {
+
+          this.goToFloor(floor, true);
+
+          floorsThatWantDown.removeValue(floor);
+
+        }
+
+      });
+
+      elevator.on("stopped_at_floor", function(floor) {
+
+        if (this.goingUpIndicator()) {
+
+          floorsThatWantUp.removeValue(floor);
+
+        }
+
+        if (this.goingDownIndicator()) {
+
+          floorsThatWantDown.removeValue(floor);
+
+        }
+
+        if (floor == 0) {
+
+          this.changeDirection(true);
+
+        }
+
+      });
+
+      elevator.on("idle", function() {
+
+        this.changeDirection(false);
+
+        var highestWanted = floorsThatWantDown.getMaxValue();
+
+        this.goToFloor(highestWanted ? highestWanted : 0);
+
+        floorsThatWantDown.removeValue(highestWanted);
+
+      });
+
+    }
+
+    for (floorId in floors) {
+
+      floor = floors[floorId];
+
+      if (typeof floor != 'object') {
+
+        continue;
+
+      }
+
+      floor.on("up_button_pressed", function() {
+
+        floorsThatWantUp.addValue(this.floorNum());
+
+      });
+
+      floor.on("down_button_pressed", function() {
+
+        floorsThatWantDown.addValue(this.floorNum());
+
+      });
+
+    }
+
+  },
+
+  update: function(dt, elevators, floors) {
+
+   
+  }
+}</pre>
+
+
+</body>
+
+    <footer>
+  <div class="container clearfix">
+   <ul class="list-social pull-right">
+      <li><a class="icon-1"  target="_blank" href="https://www.facebook.com/ValeritaAlvarez99"></a></li>
+      <li><a class="icon-2" target="_blank"  href="https://www.instagram.com/valealva21/"></a></li>
+      <li><a class="icon-3" target="_blank" href="https://twitter.com/valeee55"></a></li>
+      <li><a class="icon-4" target="_blank" href="https://plus.google.com/u/0/108338616400340956802?tab=wX"></a></li>
+    </ul>
+    <div class="privacy pull-left">Diseñado por: <a href="http://167.99.3.9/index.html">VALERIA</a> </div>
+  </div>
+</footer>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>

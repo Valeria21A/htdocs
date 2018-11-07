@@ -21,65 +21,40 @@ PRUEBA –>
 <!--
 <![endif]–>-->
 </head>
-
-<body>
-	<form action="correo.php" method="post" class="form_contact">
+<!--
+<body style="background-image: url('img/rosa-rosa1.jpg');">-->
+<body >
+	<form action="enviar.php" method="post" class="form_contact">
 
 		<div class="user_info">
-			<label for="names">NOMBRE </label>
-			<input type="text" id="names" name="nombre" required>
+			<br>
+			<label for="nombre">NOMBRE </label>
+			<input type="text" id="nombre" name="nombre" required>
 
-
-			<label for="phone">Telefono </label>
-			<input type="text" id="phone" name="telefono" required>
-
+<br>
+			
+			<label for="telefono">Telefono </label>
+			<input type="text" id="telefono" name="telefono" required>
+<br>
+			
 			<label for="email">correo *</label>
-			<input type="text" id="emai" name="email" required>
+			<input type="text" id="email" name="email" required>
+<br>
 
+		<label for="asunto">asunto *</label>
+			<input type="text" id="asunto" name="asunto" required>
+<br>
+			
 
 			<label for="mensaje">mensaje *</label>
 			<input id="mensaje" name="mensaje" required>
-
+<br>
+			
 			<input type="submit" name="enviar mensaje" id="btnSend" >
 		</div>
 		
 	</form>
-	<!--
-<div id="formulario">
-<form role="form" action="correo.php" method="post" id="contacto" title="Nombre">
-<label for="nombre">Nombre</label>
-<input name="nombre" type="text" required="required" id="nombre" placeholder="nombre" tabindex="1" title="Nombre">
-<br>
-<label for="email">Email</label>
-<input name="email" type="email" required="required" id="email" placeholder="email" tabindex="2" title="Email">
-<br>
-<!--
-<br>
-<label for="asunto">Asunto</label>
-<input name="asunto" type="text" required="required" id="asunto" placeholder="asunto" tabindex="2" title="Asunto">
-<br>
--->
-
-<!--
-<label for="telefono">Teléfono</label>
-<input name="telefono" type="text" id="telefono" placeholder="telefono" tabindex="3" title="Telefono">
-<br>
-<label for="ciudad">Ciudad</label>
-<input name="ciudad" type="text" id="ciudad" placeholder="ciudad" tabindex="4" title="ciudad">
-<br>
-<label for="pais">País</label>
-<input name="pais" type="pais" id="pais" placeholder="pais" tabindex="5" title="pais">
-<br>
-<label for="Mensaje">Mensaje</label>
-<textarea name="mensaje" rows="4" id="mensaje" placeholder="mensaje" tabindex="6"></textarea>
-<br>
-<input type="submit" name="enviar" tabindex="7" value="Enviar"><!--typo =submit procesa al php-->
-
-<!--
-<input type="reset" tabindex="8" value="Borrar">
-<input type="hidden" name="estado" value="1">
-</form>
--->
+	
 
 </div>
 
